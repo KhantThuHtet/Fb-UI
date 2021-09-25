@@ -39,6 +39,10 @@ body{
     background-color: var(--semi-dark);
     display: flex;
     padding: 5px 0px;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    box-shadow: 0 0 3px var(--transparent-dark);
 }
 .nav-left{
     color: var(--text-white);
@@ -218,7 +222,6 @@ body{
     height: 200vh;
     overflow: scroll;
     overflow-x: hidden;
-    /* overflow-y: hidden; */
 }
 /* width */
 .news-feed::-webkit-scrollbar {
@@ -251,8 +254,9 @@ body{
     width: 100%;
     height: 175px;
     border-radius: 10px 10px 0 0;
-    background-image: url(./../images/profile.jpg);
+    background-image: url(./../images/bajii.jpg);
     background-size: cover;
+    background-position: center;
 }
 .my-day-profile-bot{
     display: flex;
@@ -530,6 +534,18 @@ body{
     border-radius: 50%;
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+.owner-profile-img::after{
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--success);
+    top: 27px;
+    left: 30px;
+    border: 2px solid var(--transparent-dark);
 }
 .owner-profile-name{
     display: flex;
@@ -672,7 +688,7 @@ body{
     overflow: scroll;
     overflow-x: hidden;
     position: sticky;
-    top: 0;
+    top: 70px;
     display: flex;
     justify-content: flex-start;
     flex-flow: column wrap;
@@ -753,18 +769,107 @@ body{
 /******Chat Box Section*****/
 .chat-box{
     width: 25%;
-    height: 100vh;
+    height: 120vh;
     overflow: scroll;
     overflow-x: hidden;
     position: sticky;
-    top: 0;
+    top: -100px;
     display: flex;
     justify-content: flex-start;
     flex-flow: column wrap;
     margin: 10px 0;
     padding: 10px 10px 10px 80px;
 }
-
+.friend-req{
+    width: 90%;
+    height: 140px;
+    border-radius: 10px;
+    background-color: var(--semi-dark);
+    margin-bottom: 5px;
+}
+.fri-req-heading{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.req-left{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.req-left img, .req-left span{
+    margin-left: 10px;
+}
+.req-right{
+    margin-right: 10px;
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.req-right:hover{
+    background-color: var(--transparent-dark);
+}
+.req-right svg{
+    fill: var(--text-gray);
+    transform: scale(1.3);
+}
+.req-user-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 15px;
+}
+.req-profile{
+    width: 60px;
+    height: 60px;
+    margin-top: -2px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+.req-user{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-right: 20px;
+    padding: 5px 0;
+}
+.req-username{
+    margin-bottom: 7px;
+}
+.req-username span:first-child{
+    color: var(--text-gray);
+    font-weight: bold;
+}
+.req-username span:last-child{
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-left: 30px;
+}
+.req-action-btn button:first-child{
+    padding: 7px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--primary);
+    color: var(--text-white);
+    font-weight: bold;
+    font-size: 16px;
+}
+.req-action-btn button:last-child{
+    padding: 7px 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--transparent-dark);
+    color: var(--text-white);
+    font-weight: bold;
+    font-size: 16px;
+}
 .ad-title{
     color: var(--text-gray);
     font-weight: bold;
@@ -807,6 +912,113 @@ body{
 .ad-text span:last-child{
     color: var(--text-gray);
     font-size: 15px;
+}
+.ad-bar{
+    width: 90%;
+    border: 1px solid var(--transparent-dark);
+    margin: 5px 0;
+}
+.contacts{
+    font-weight: bold;
+    color: var(--text-gray);
+    font-size: 18px;
+}
+.messenger-active-user{
+    margin-top: 5px;
+}
+.messenger-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.options{
+    display: flex;
+    align-items: center;
+}
+
+.options div:last-child{
+    margin-right: 35px;
+}
+.vc, .search, .options-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.2s all;
+}
+.vc:hover, .search:hover, .options-menu:hover{
+    background-color: var(--semi-dark);
+}
+.msger-iconn{
+    color: var(--text-gray);
+    transform: scale(0.8);
+}
+.msger-icon{
+    fill: var(--text-gray);
+}
+.active-user-list{
+    display: flex;
+    flex-flow: column wrap;
+}
+.active-user{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: -10px;
+    width: 92%;
+    border-radius: 5px;
+    padding: 5px 0 5px 10px;
+}
+.user-name{
+    color: var(--text-white);
+    margin-left: 15px;
+}
+.room-active-users.messenger{
+    margin-left: 0px;
+    width: 35px;
+    height: 35px;
+}
+.active-user:hover{
+    background-color: var(--semi-dark);
+}
+.room-active-users.messenger-svg{
+    margin-left: 0px;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 7px;
+    background-color: var(--transparent-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.room-active-users.messenger-svg::after{
+    content: '';
+    display: none;
+}
+.room-active-users.messenger::after{
+    content: '';
+    top: 23px;
+    left: 25px;
+    width: 8px;
+    height: 8px;
+}
+
+.msger-group-header{
+    margin-left: 0;
+    color: var(--text-gray);
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.group-name{
+    color: var(--text-gray);
+    font-weight: bold;
+    margin-left: 15px;
 }
 /****************************/
 .main-message{
